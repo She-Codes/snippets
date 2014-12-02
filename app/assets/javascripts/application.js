@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require src-min/ace
+//= require src-min/ext-modelist
+//= require snippets

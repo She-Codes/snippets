@@ -1,3 +1,5 @@
+<div id="editor_div"></div>
+
 <%= form_for @snippet do |f| %>
   <div>
     <%= f.label :title %>
@@ -6,7 +8,7 @@
 
   <div>
     <%= f.label :language %>
-    <%= f.text_field :language %>
+    <%= f.select :language, [['select language', nil]] %>
   </div>
 
   <div>
