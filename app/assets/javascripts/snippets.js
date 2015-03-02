@@ -11,18 +11,27 @@ $(document).ready(function(){
   // });
   // console.log(modesByName);
 
-  // 
+  //
+  $.getJSON("/language.json", function(data){
+    console.log(data["languages"]);
+  });
+
   $.each(modesByName, function(k, v){
-    $('#snippet_language')
+    $('#snippet_language_id')
       .append($('<option></option>')
       .attr('value', v.name)
       .attr('data-mode', v.mode)
       .text(v.caption))   
   });
 
-  $('#snippet_language').on('change', function(){
-    var newMode = $('#snippet_language :selected').attr('data-mode');
+  $('#snippet_language_id').on('change', function(){
+    var newMode = $('#snippet_language_id :selected').attr('data-mode');
     editor.session.setMode(newMode);
   })
+
+  $('body').prepend('<ul></ul>');
+  $.each(modesByName, function(k, v){
+    $('ul').prepend('<li>'+v.caption+'</li>');
+  });
   
 });

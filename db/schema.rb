@@ -11,17 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141129203931) do
+ActiveRecord::Schema.define(version: 20150228161724) do
 
-  create_table "categories", force: true do |t|
+  create_table "languages", force: true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "snippet_categories", force: true do |t|
-    t.integer  "snippet_id"
-    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -35,12 +28,12 @@ ActiveRecord::Schema.define(version: 20141129203931) do
 
   create_table "snippets", force: true do |t|
     t.string   "title"
-    t.string   "language"
     t.text     "description"
     t.text     "body"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "language_id"
   end
 
   create_table "tags", force: true do |t|
